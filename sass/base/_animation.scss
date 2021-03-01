@@ -1,0 +1,52 @@
+@keyframes moveInLeft {
+  /* When Animation starts, it is invisible */
+  0% {
+    opacity: 0;
+    /* Starting from left */
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* When Animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* When Animation starts, it is invisible */
+  0% {
+    opacity: 0;
+    /* Starting from Right */
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* When Animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /* When Animation starts, it is invisible */
+  0% {
+    opacity: 0;
+    /* Starting from Right */
+    transform: translateY(30px);
+  }
+
+  /* When Animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

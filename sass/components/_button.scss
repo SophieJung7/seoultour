@@ -1,0 +1,61 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    /* For the button position top, left 0 */
+    position: relative;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    /* no x shadow bottom 10px shadow 20px blurred shadow */
+    box-shadow: 0 10px 20px rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* To Make fade out */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* Button Behind Button for hovering effect */
+  &::after {
+    /* Content, display is MUST */
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    /* animation name, duration, effect, delay */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* Before animation starts, moveInBottom 0% is applied. So it is invisible before */
+    animation-fill-mode: backwards;
+  }
+}

@@ -1,0 +1,9 @@
+// To remove the side effects of float left
+// Side effect: margin bottom disappeared
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

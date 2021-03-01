@@ -1,0 +1,168 @@
+@keyframes moveInLeft {
+  /* When Animation starts, it is invisible */
+  0% {
+    opacity: 0;
+    /* Starting from left */
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(10px); }
+  /* When Animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  /* When Animation starts, it is invisible */
+  0% {
+    opacity: 0;
+    /* Starting from Right */
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-10px); }
+  /* When Animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  /* When Animation starts, it is invisible */
+  0% {
+    opacity: 0;
+    /* Starting from Right */
+    transform: translateY(30px); }
+  /* When Animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  padding: 30px; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* To fix the shaking of animation(Nobody knows why this happens) */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  text-align: center; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* Slow and then get fast */
+    animation-timing-function: ease-out;
+    /* Repeat the animtaion 3 times */
+    /* animation-iteration-count: 3; */
+    /* Start in 3 seconds */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 14.2px;
+    animation: moveInRight 1s ease-out; }
+
+.btn {
+  /* Button Behind Button for hovering effect */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    /* For the button position top, left 0 */
+    position: relative; }
+  .btn:hover {
+    transform: translateY(-3px);
+    /* no x shadow bottom 10px shadow 20px blurred shadow */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* To Make fade out */
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    /* Content, display is MUST */
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    /* animation name, duration, effect, delay */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* Before animation starts, moveInBottom 0% is applied. So it is invisible before */
+    animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(247, 159, 31, 0.8), rgba(238, 90, 36, 0.8)), url(https://images.unsplash.com/photo-1540998145333-e2eef1a9822d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1533&q=80);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  position: relative; }
+  .header__logo {
+    height: 35px; }
+    .header__logo-box {
+      position: absolute;
+      top: 40px;
+      left: 40px; }
+  .header__text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: '';
+    display: table;
+    clear: both; }
+  .row [class^='col-'] {
+    background-color: orangered;
+    float: left; }
+    .row [class^='col-']:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
